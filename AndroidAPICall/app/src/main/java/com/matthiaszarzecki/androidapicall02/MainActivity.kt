@@ -2,6 +2,7 @@ package com.matthiaszarzecki.androidapicall02
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import retrofit2.Call
 import retrofit2.Callback
@@ -36,10 +37,14 @@ class MainActivity : AppCompatActivity() {
                 ) {
                     val responseBody = response.body()!!
 
+                    Log.d("AndroidAPICall", "Hello 1");
+
                     val myStringBuilder = StringBuilder()
-                    for (myData in responseBody) {
-                        myStringBuilder.append(myData.id)
+                    for (post in responseBody) {
+                        myStringBuilder.append(post.title)
                         myStringBuilder.append("\n")
+
+                        Log.d("AndroidAPICall", "Hello 2");
                     }
 
                     val textView: TextView = findViewById<TextView>(R.id.displayText)
@@ -47,7 +52,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<List<Post>?>, t: Throwable) {
-
+                    Log.d("AndroidAPICall", "Call Failed!");
                 }
             }
         )

@@ -6,7 +6,3 @@ data class Post (
     var title: String,
     val userId: Int
 )
-
-data class PostResponse (
-    val posts: List<Post>
-)
