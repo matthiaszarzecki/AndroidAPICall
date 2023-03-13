@@ -37,22 +37,22 @@ class MainActivity : AppCompatActivity() {
         ) {
           val responseBody = response.body()!!
 
-          Log.d("AndroidAPICall", "Hello 1");
+          Log.d("AndroidAPICall", "Hello 1")
 
           val myStringBuilder = StringBuilder()
           for (post in responseBody) {
             myStringBuilder.append(post.title)
             myStringBuilder.append("\n")
 
-            Log.d("AndroidAPICall", "Hello 2");
+            Log.d("AndroidAPICall", "Hello 2")
           }
 
-          val textView: TextView = findViewById<TextView>(R.id.displayText)
+          val textView: TextView = findViewById(R.id.displayText)
           textView.text = myStringBuilder
         }
 
         override fun onFailure(call: Call<List<Post>?>, t: Throwable) {
-          Log.d("AndroidAPICall", "Call Failed!");
+          Log.d("AndroidAPICall", "Call Failed!")
         }
       }
     )
