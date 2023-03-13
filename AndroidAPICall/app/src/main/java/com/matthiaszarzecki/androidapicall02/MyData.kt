@@ -1,3 +1,3 @@
 package com.matthiaszarzecki.androidapicall02
 
-class MyData : ArrayList<MyDataItem>()
+class MyData : ArrayList<Post>()

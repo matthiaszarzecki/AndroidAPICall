@@ -24,15 +24,15 @@ class MainActivity : AppCompatActivity() {
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(BASE_URL)
             .build()
-            .create(ApiInterface::class.java)
+            .create(API::class.java)
 
-        val retrofitData = retroFitBuilder.getData()
+        val retrofitData = retroFitBuilder.getPosts()
 
         retrofitData.enqueue(
-            object : Callback<List<MyDataItem>?> {
+            object: Callback<List<Post>?> {
                 override fun onResponse(
-                    call: Call<List<MyDataItem>?>,
-                    response: Response<List<MyDataItem>?>
+                    call: Call<List<Post>?>,
+                    response: Response<List<Post>?>
                 ) {
                     val responseBody = response.body()!!
 
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
                     textView.text = myStringBuilder
                 }
 
-                override fun onFailure(call: Call<List<MyDataItem>?>, t: Throwable) {
+                override fun onFailure(call: Call<List<Post>?>, t: Throwable) {
 
                 }
             }

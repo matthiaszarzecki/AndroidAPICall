@@ -3,7 +3,7 @@ package com.matthiaszarzecki.androidapicall02
 import retrofit2.Call
 import retrofit2.http.GET
 
-interface ApiInterface {
+interface API {
     @GET("posts")
-    fun getData(): Call<List<MyDataItem>>
+    fun getPosts(): Call<List<Post>>
 }
