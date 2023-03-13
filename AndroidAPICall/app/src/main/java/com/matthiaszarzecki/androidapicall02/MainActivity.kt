@@ -10,8 +10,6 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-const val BASE_URL = "https://jsonplaceholder.typicode.com/"
-
 class MainActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -37,14 +35,14 @@ class MainActivity : AppCompatActivity() {
         ) {
           val responseBody = response.body()!!
 
-          Log.d("AndroidAPICall", "Hello 1")
+          Log.d(TAG, "Starting Call")
 
           val myStringBuilder = StringBuilder()
           for (post in responseBody) {
             myStringBuilder.append(post.title)
             myStringBuilder.append("\n")
 
-            Log.d("AndroidAPICall", "Hello 2")
+            Log.d(TAG, "Adding Post Data to Display")
           }
 
           val textView: TextView = findViewById(R.id.displayText)
@@ -52,7 +50,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun onFailure(call: Call<List<Post>?>, t: Throwable) {
-          Log.d("AndroidAPICall", "Call Failed!")
+          Log.d(TAG, "Call Failed!")
         }
       }
     )
