@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
       .addConverterFactory(GsonConverterFactory.create())
       .baseUrl(BASE_URL)
       .build()
-      .create(API::class.java)
+      .create(APIInterface::class.java)
 
     val retrofitData = retroFitBuilder.getPosts()
 
