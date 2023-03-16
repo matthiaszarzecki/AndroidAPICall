@@ -37,6 +37,8 @@ class MainActivity : AppCompatActivity() {
 
           Log.d(TAG, "Starting Call")
 
+          Log.d(TAG, responseBody.toString())
+
           val myStringBuilder = StringBuilder()
           for (post in responseBody) {
             myStringBuilder.append(post.title)
